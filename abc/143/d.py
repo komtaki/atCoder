@@ -1,17 +1,15 @@
-import itertools
+import bisect
 
-N = int(input())
-L = [int(i) for i in input().split()]
+n = int(input())
+li = list(map(int, input().split()))
+ans = 0
 
+li.sort()
 
-def solve():
-    pattern_cnt = 0
+for i in range(n):
+    for j in range(i+1, n):
+        cnt = bisect.bisect_left(li, li[i]+li[j])
 
-    for pattern in list(itertools.combinations(L, 3)):
-        if (pattern[0] < pattern[1] + pattern[2]) and (pattern[2] < pattern[0] + pattern[1]) and  (pattern[1] < pattern[0] + pattern[2]):
-            pattern_cnt += 1
+        ans += cnt - j - 1
 
-    return pattern_cnt
-
-
-print(solve())
+print(ans)
