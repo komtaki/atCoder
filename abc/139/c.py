@@ -1,5 +1,5 @@
 N = int(input())
-H = [map(int, input().split())]
+H = list(map(int, input().split()))
 
 
 def solve(N, H):
