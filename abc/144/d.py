@@ -1,8 +1,11 @@
-from numpy import arctan, pi
+import math
 
-a, b, x = list(map(int, input().split()))
+a, b, x = map(int, input().split())
+s = x / a
 
-if x > 0.5 * a * a * b:
-    print(arctan(2 / a * (b - x / (a * a))) / (pi) * 180)
+if s <= a * b / 2:
+    rad = math.atan(b / (2 * s / b))
 else:
-    print(arctan(a * b * b / (2 * x)) / (pi) * 180)
+    rad = math.atan(2 * (a * b - s) / a**2)
+
+print(rad * 180 / math.pi)
