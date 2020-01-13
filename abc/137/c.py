@@ -1,12 +1,21 @@
 from collections import Counter
 
+
+def solve(s):
+    c = Counter(s)
+
+    ans = 0
+    for i in c.values():
+        ans += i * (i - 1) // 2
+
+    return ans
+
+
 n = int(input())
-s = [sorted(input()) for i in range(n)]
+s = []
 
-c = Counter(["".join(s[i]) for i in range(n)])
+for i in range(n):
+    tmp = sorted(input())
+    s.append("".join(tmp))
 
-ans = 0
-for i in c.values():
-    ans += i * (i - 1) // 2
-
-print(ans)
+print(solve(s))
