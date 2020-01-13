@@ -14,6 +14,8 @@ N = int(input())
 # P = []
 # S = []
 # for i in range(N):
-#     P[i], S[i] = map(int, input().split())
+#     pp, ss  = map(int, input().split())
+#     P.append(pp)
+#     S.append(ss)
 
 print(solve(N))
