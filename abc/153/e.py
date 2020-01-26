@@ -1,18 +1,26 @@
-# import itertools
-# import math
 import numpy as np
+import sys
+read = sys.stdin.buffer.read
+readline = sys.stdin.buffer.readline
+readlines = sys.stdin.buffer.readlines
 
 
-H, N = map(int, input().split())
-AB = [list(map(int, input().split())) for _ in range(N)]
+H, N = map(int, readline().split())
+m = map(int, read().split())
+AB = zip(m, m)
 
-AB.sort()
+INF = 10 ** 18
+U = 20000
+dp = np.full(U, INF, np.int64)
+dp[0] = 0
 
-ans = 0
-dp = np.zeros(H, dtype=int)
 for a, b in AB:
-    ans = max(ans, dp.max() + b)
-    np.max(dp[:-a] + b, dp[a:], out=dp[a:])
+    n = (U + (-U) % a) // a
+    dp = np.resize(dp, U + (-U) % a).reshape(-1, a)
+    dp -= (np.arange(n) * b)[:, None]
+    dp = np.minimum.accumulate(dp, axis=0)
+    dp += (np.arange(n) * b)[:, None]
+    dp = dp.ravel()[:U]
 
-print(ans)
-+
+answer = min(dp[H:])
+print(answer)
