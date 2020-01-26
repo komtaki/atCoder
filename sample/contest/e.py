@@ -1,6 +1,9 @@
 # import itertools
 # import math
 
+import sys
+input = sys.stdin.readline
+
 
 def solve(N):
     return
@@ -14,7 +17,7 @@ N = int(input())
 # P = []
 # S = []
 # for i in range(N):
-#     pp, ss  = map(int, input().split())
+#     pp, ss = map(int, input().split())
 #     P.append(pp)
 #     S.append(ss)
 

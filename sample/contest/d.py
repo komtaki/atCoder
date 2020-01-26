@@ -1,6 +1,9 @@
 # import itertools
 # import math
 
+import sys
+input = sys.stdin.readline
+
 
 def solve(N):
     return
