@@ -1,26 +1,14 @@
 import numpy as np
-import sys
-read = sys.stdin.buffer.read
-readline = sys.stdin.buffer.readline
-readlines = sys.stdin.buffer.readlines
 
+h, n = map(int, input().split())
+ab = np.array([list(map(int, input().split()))for _ in range(n)])
 
-H, N = map(int, readline().split())
-m = map(int, read().split())
-AB = zip(m, m)
+a, b = ab[:, 0], ab[:, 1]
 
-INF = 10 ** 18
-U = 20000
-dp = np.full(U, INF, np.int64)
-dp[0] = 0
+dp = np.zeros(h + 1, dtype=np.int)
+for i in range(1, h + 1):
+    tmp = dp[np.maximum(i - a, 0)]
+    tmp += b
+    dp[i] = np.min(tmp)
 
-for a, b in AB:
-    n = (U + (-U) % a) // a
-    dp = np.resize(dp, U + (-U) % a).reshape(-1, a)
-    dp -= (np.arange(n) * b)[:, None]
-    dp = np.minimum.accumulate(dp, axis=0)
-    dp += (np.arange(n) * b)[:, None]
-    dp = dp.ravel()[:U]
-
-answer = min(dp[H:])
-print(answer)
+print(dp[h])
