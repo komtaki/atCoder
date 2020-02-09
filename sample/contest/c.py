@@ -1,7 +1,6 @@
+import sys
 # import itertools
 # import math
-
-import sys
 
 
 def resolve():
