@@ -1,6 +1,3 @@
-# import itertools
-# import math
-
 import unittest
 from io import StringIO
 import sys
@@ -9,16 +6,8 @@ import sys
 def resolve():
     input = sys.stdin.readline
     N = int(input())
-    # S = input()
-    # A, B = map(int, input().split())
-    A = list(map(int, input().split()))
 
-    # P = []
-    # S = []
-    # for i in range(N):
-    #     pp, ss = map(int, input().split())
-    #     P.append(pp)
-    #     S.append(ss)
+    A = list(map(int, input().split()))
 
     isBalls = [0] * (N + 1)
     for k in reversed(range(1, N + 1)):
