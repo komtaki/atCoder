@@ -2,11 +2,11 @@
 # import math
 
 import sys
-input = sys.stdin.readline
 
 
 def resolve():
-    # N = int(input())
+    input = sys.stdin.readline
+    N = int(input())
     # S = input()
     # A, B = map(int, input().split())
     # A = list(map(int, input().split()))
