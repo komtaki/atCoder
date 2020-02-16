@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  at_coder:
+    build: .
+    tty: true
+    volumes:
+      - .:/home/workspace
