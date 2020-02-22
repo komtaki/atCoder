@@ -18,4 +18,4 @@ def resolve():
     print()
 
 
-resolve()
+# resolve()
