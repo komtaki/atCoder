@@ -1,30 +1,34 @@
-from functools import lru_cache
-import sys
-
-sys.setrecursionlimit(1000000)
-
-H, N = map(int, input().split())
-
-AB = []
-for i in range(N):
-    A, B = map(int, input().split())
-    AB.append((A, B))
-
-AB.sort(key=lambda ab: (ab[0] / ab[1], -ab[0]), reverse=True)
+import numpy as np
 
 
-@lru_cache(maxsize=None)
-def solve(h):
-    if h <= 0:
-        return 0
-    best = float("inf")
-    for a, b in AB:
-        val = b + solve(h - a)
-        if val < best:
-            best = val
-        else:
-            break
-    return best
+def dp(h, n, aaa, bbb):
+    """動的計画法
+
+    Args:
+        h (int): [description]
+        n (int): [description]
+        aaa (list[int]): [description]
+        bbb (list[int]): [description]
+
+    Returns:
+        int:
+
+    Examples:
+        >>> dp(9, 3, [8, 4, 2], [3, 2, 1])
+        4
+
+    Note:
+        https://atcoder.jp/contests/abc153/tasks/abc153_e
+    """
+    aaa = np.array(aaa)
+    bbb = np.array(bbb)
+
+    dp = np.zeros(h + 1, dtype=np.int64)
+    for i in range(1, h + 1):
+        dp[i] = (dp[i - aaa] + bbb).min()
+    return dp[h]
 
 
-print(solve(H))
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
