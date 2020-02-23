@@ -25,6 +25,7 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-python.python",
+		"njpwerner.autodocstring",
 		"plibither8.remove-comments"
 	]
 	// Uncomment the next line if you want start specific services in your Docker Compose config.
