@@ -6,6 +6,5 @@
         "heapq",
         "numpy"
     ],
-    "editor.formatOnSave": true,
-    "python.pythonPath": "/usr/local/bin/python",
+    "editor.formatOnSave": true
 }
