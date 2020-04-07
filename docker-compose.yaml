@@ -1,8 +1,13 @@
 version: "3.7"
 
 services:
-  at_coder:
-    build: .
+  python3.4:
+    build: ./docker/python3.4
     tty: true
     volumes:
-      - .:/home/workspace
+      - .:/workspace
+  # python3.8:
+  #   build: ./docker/python3.8
+  #   tty: true
+  #   volumes:
+  #     - .:/workspace
