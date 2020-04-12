@@ -5,7 +5,9 @@ RUN pip install --no-cache-dir \
     scipy==1.4.1 \
     scikit-learn==0.22 \
     numba==0.47.0 \
-    networkx==2.4
+    networkx==2.4 \
+    flake8 \
+    autopep8
 
 RUN mkdir /workspace
 
