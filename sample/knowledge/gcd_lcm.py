@@ -1,4 +1,4 @@
-from fractions import gcd
+from math import gcd
 
 
 def list_lcm(A):
