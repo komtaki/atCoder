@@ -1,5 +1,3 @@
-# import itertools
-# import math
 
 
 def resolve():
