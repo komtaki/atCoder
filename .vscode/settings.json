@@ -1,10 +1,10 @@
 {
-    "cSpell.words": [
-        "arange",
-        "groupby",
-        "heapify",
-        "heapq",
-        "numpy"
-    ],
-    "editor.formatOnSave": true
+  "cSpell.words": [
+    "arange",
+    "groupby",
+    "heapify",
+    "heapq",
+    "numpy",
+    "prec"
+  ]
 }
