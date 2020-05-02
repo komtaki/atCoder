@@ -19,7 +19,8 @@ def solve():
         for j in range(n - 1):
             now_city = pattern[j]
             next_city = pattern[j + 1]
-            tmp = (x[now_city] - x[next_city]) ** 2 + (y[now_city] - y[next_city]) ** 2
+            tmp = (x[now_city] - x[next_city]) ** 2 + \
+                (y[now_city] - y[next_city]) ** 2
             tmp_ans.append(
                 math.sqrt(tmp)
             )

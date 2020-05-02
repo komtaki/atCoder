@@ -8,6 +8,7 @@ input = sys.stdin.readline
 def solve(N, D):
     return math.ceil(N / ((D * 2) + 1))
 
+
 # N = int(input())
 # S = input()
 N, D = map(int, input().split())
