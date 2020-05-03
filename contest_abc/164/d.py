@@ -1,27 +1,22 @@
-import unittest
 from io import StringIO
 import sys
-
-
-def retry(list_S, len_S, ans=0, start_ii=0):
-    if len_S <= 3 or start_ii > len_S - 3:
-        return ans
-
-    for start_i in range(start_ii, len_S - 3):
-        for last_i in range(start_i + 3, len_S):
-            tmp = ''.join(list_S[start_i:last_i + 1])
-
-            if (int(tmp) % 2019) == 0:
-                ans += 1
-                return retry(list_S, len_S, ans, last_i)
-
-    return ans
+import unittest
+from collections import defaultdict
 
 
 def resolve():
-    S = list(input())
-    len_S = len(S)
-    print(retry(list_S=S, len_S=len_S))
+    s = input()
+
+    cnt = defaultdict(int)
+    cnt[0] += 1
+    tmp = 0
+    for i, c in enumerate(s[::-1]):
+        c = int(c)
+        tmp = (tmp + c * pow(10, i, 2019)) % 2019
+        cnt[tmp] += 1
+
+    ans = sum(c * (c - 1) // 2 for c in cnt.values())
+    print(ans)
 
 
 # resolve()
