@@ -1,7 +1,3 @@
-# import itertools
-# import math
-
-
 import unittest
 from io import StringIO
 import sys
@@ -11,9 +7,6 @@ def resolve():
     X, Y, Z = input().split()
 
     print(Z + ' ' + X + ' ' + Y)
-
-
-resolve()
 
 
 class TestClass(unittest.TestCase):

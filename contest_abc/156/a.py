@@ -1,24 +1,10 @@
-# import itertools
-# import math
-
-
 import unittest
 from io import StringIO
 import sys
 
 
 def resolve():
-    # N = int(input())
-    # S = input()
     N, R = map(int, input().split())
-    # A = list(map(int, input().split()))
-
-    # P = []
-    # S = []
-    # for i in range(N):
-    #     pp, ss = map(int, input().split())
-    #     P.append(pp)
-    #     S.append(ss)
 
     if N < 10:
         ans = R + (100 * (10 - N))
@@ -26,9 +12,6 @@ def resolve():
         return
 
     print(R)
-
-
-# resolve()
 
 
 class TestClass(unittest.TestCase):

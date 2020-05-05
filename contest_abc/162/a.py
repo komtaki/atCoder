@@ -1,7 +1,3 @@
-# import itertools
-# import math
-
-
 import unittest
 from io import StringIO
 import sys
@@ -16,9 +12,6 @@ def resolve():
             return
 
     print("No")
-
-
-resolve()
 
 
 class TestClass(unittest.TestCase):

@@ -1,7 +1,3 @@
-# import itertools
-# import math
-
-
 import unittest
 from io import StringIO
 import sys
@@ -19,7 +15,7 @@ def resolve():
     print(K - max_distance)
 
 
-# resolve()
+resolve()
 
 
 class TestClass(unittest.TestCase):

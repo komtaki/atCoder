@@ -1,7 +1,3 @@
-# import itertools
-# import math
-
-
 import unittest
 from io import StringIO
 import sys
@@ -14,9 +10,6 @@ def resolve():
     ans = min(ans, abs(ans - K))
 
     print(ans)
-
-
-resolve()
 
 
 class TestClass(unittest.TestCase):

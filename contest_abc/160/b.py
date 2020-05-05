@@ -1,7 +1,3 @@
-# import itertools
-# import math
-
-
 import unittest
 from io import StringIO
 import sys
@@ -17,9 +13,6 @@ def resolve():
     ans += X // 5 * 5
 
     print(ans)
-
-
-resolve()
 
 
 class TestClass(unittest.TestCase):

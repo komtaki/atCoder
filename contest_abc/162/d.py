@@ -22,8 +22,6 @@ def resolve():
     print(ans)
 
 
-resolve()
-
 
 class TestClass(unittest.TestCase):
     def assertIO(self, input, output):

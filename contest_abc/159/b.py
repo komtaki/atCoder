@@ -1,7 +1,3 @@
-# import itertools
-# import math
-
-
 import unittest
 from io import StringIO
 import sys
@@ -34,7 +30,7 @@ def resolve():
     print('Yes')
 
 
-# resolve()
+
 
 
 class TestClass(unittest.TestCase):

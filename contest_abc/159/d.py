@@ -1,7 +1,3 @@
-# import itertools
-# import math
-
-
 import unittest
 from io import StringIO
 import sys
@@ -22,9 +18,6 @@ def resolve():
         count = counter[a]
         print(ans - (count * (count - 1) // 2) +
               ((count - 1) * (count - 2) // 2))
-
-
-# resolve()
 
 
 class TestClass(unittest.TestCase):

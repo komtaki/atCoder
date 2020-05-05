@@ -1,7 +1,3 @@
-# import itertools
-# import math
-
-
 import unittest
 from io import StringIO
 import sys
@@ -23,9 +19,6 @@ def resolve():
     ans_list = list(str(ans))
 
     print(len(ans_list))
-
-
-# resolve()
 
 
 class TestClass(unittest.TestCase):
