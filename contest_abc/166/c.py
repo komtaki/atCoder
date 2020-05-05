@@ -1,24 +1,25 @@
 def resolve():
-    n, m = map(int, input().split())
-    hhh = list(map(int, input().split()))
-    nice = [1] * n
+    N, M = map(int, input().split())
+    H = list(map(int, input().split()))
 
-    for _ in range(m):
-        a, b = map(int, input().split())
-        a -= 1
-        b -= 1
-        ha = hhh[a]
-        hb = hhh[b]
-        if ha <= hb:
-            nice[a] = False
-        if ha >= hb:
-            nice[b] = False
+    A = [[] for _ in range(N)]
+    for i in range(M):
+        pp, ss = map(int, input().split())
+        ss -= 1
+        pp -= 1
+        A[pp].append(H[ss])
+        A[ss].append(H[pp])
 
-    print(sum(nice))
+    ans = 0
+    for j in range(N):
+        now = H[j]
+        if not A[j] or now > max(A[j]):
+            ans += 1
+
+    print(ans)
 
 
 # resolve()
-
 
 
 import sys
