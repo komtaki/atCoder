@@ -8,6 +8,7 @@ def resolve():
 
     # P = []
     # S = []
+    # Q = [[] for _ in range(N)]
     # for i in range(N):
     #     pp, ss = map(int, input().split())
     #     P.append(pp)
