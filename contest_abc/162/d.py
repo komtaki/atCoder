@@ -10,17 +10,15 @@ def resolve():
     cnt = Counter(s)
     ans = cnt['R'] * cnt['G'] * cnt['B']
 
-    for i in range(n):
-        l = 1
-        si = s[i]
-        while i + l * 2 < n:
-            if si != s[i + l] and si != s[i + l *
-                                          2] and s[i + l] != s[i + l * 2]:
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            ken = j * 2 - i
+            if (ken >= n):
+                continue
+            if (s[i] != s[j] and s[j] != s[ken] and s[i] != s[ken]):
                 ans -= 1
-            l += 1
 
     print(ans)
-
 
 
 class TestClass(unittest.TestCase):
