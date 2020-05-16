@@ -1,23 +1,24 @@
+
+
 import unittest
 from io import StringIO
 import sys
-import bisect
 
 
 def resolve():
-    n = int(input())
-    li = list(map(int, input().split()))
-    ans = 0
+    N, K = map(int, input().split())
+    R, S, P = map(int, input().split())
+    point = {"r": P, "s": R, "p": S}
+    T = input()
 
-    li.sort()
+    res = [0] * N
+    for i, t in enumerate(T):
+        if i - K < 0:
+            res[i] = point[t]
+        if i - K >= 0 and (res[i - K] == 0 or T[i - K] != T[i]):
+            res[i] = point[t]
 
-    for i in range(n):
-        for j in range(i + 1, n):
-            cnt = bisect.bisect_left(li, li[i] + li[j])
-
-            ans += cnt - j - 1
-
-    print(ans)
+    print(sum(res))
 
 
 class TestClass(unittest.TestCase):
@@ -31,21 +32,24 @@ class TestClass(unittest.TestCase):
         self.assertEqual(out, output)
 
     def test_入力例_1(self):
-        input = """4
-3 4 2 1"""
-        output = """1"""
+        input = """5 2
+8 7 6
+rsrpr"""
+        output = """27"""
         self.assertIO(input, output)
 
     def test_入力例_2(self):
-        input = """3
-1 1000 1"""
-        output = """0"""
+        input = """7 1
+100 10 1
+ssssppr"""
+        output = """211"""
         self.assertIO(input, output)
 
     def test_入力例_3(self):
-        input = """7
-218 786 704 233 645 728 389"""
-        output = """23"""
+        input = """30 5
+325 234 123
+rspsspspsrpspsppprpsprpssprpsr"""
+        output = """4996"""
         self.assertIO(input, output)
 
 
