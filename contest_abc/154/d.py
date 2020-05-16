@@ -1,29 +1,22 @@
 import unittest
 from io import StringIO
 import sys
+import itertools
 
 
 def resolve():
     N, K = map(int, input().split())
     P = list(map(int, input().split()))
 
-    ans = [0] * N
-    max_tmp = [0] * K
-    start_index = 0
-    for i in range(N - K + 1):
-        tmp = P[i: i + K]
-        ans[i] = sum(list(range(1, P[i] + 1))) / P[i]
-        if sum(max_tmp) < sum(tmp):
-            max_tmp = tmp
-            start_index = i
+    P = [(1 + p) / 2 for p in P]
+    accumulate_P = [0] + list(itertools.accumulate(P))
 
-    for i in range(N - K, N):
-        ans[i] = sum(list(range(1, P[i] + 1))) / P[i]
+    ans = 0
+    for ii in range(N - K + 1):
+        range_sum_P = accumulate_P[ii + K] - accumulate_P[ii]
+        ans = max(ans, range_sum_P)
 
-    print(sum(ans[start_index: start_index + K]))
-
-
-resolve()
+    print(ans)
 
 
 class TestClass(unittest.TestCase):
@@ -37,21 +30,21 @@ class TestClass(unittest.TestCase):
         self.assertEqual(out, output)
 
     def test_入力例_1(self):
-        input = """5 3
-1 2 2 4 5"""
-        output = """7.000000000000"""
+        input = """3 3
+700 384 43"""
+        output = """565"""
         self.assertIO(input, output)
 
     def test_入力例_2(self):
         input = """4 1
 6 6 6 6"""
-        output = """3.500000000000"""
+        output = """3.5"""
         self.assertIO(input, output)
 
     def test_入力例_3(self):
         input = """10 4
 17 13 13 12 15 20 10 13 17 11"""
-        output = """32.000000000000"""
+        output = """32.0"""
         self.assertIO(input, output)
 
 
