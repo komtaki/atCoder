@@ -10,17 +10,15 @@ def resolve():
     Q = int(input())
 
     C = Counter(A)
-    ANS = 0
-    for i in C:
-        ANS += i * C[i]
+    ANS = sum(A)
 
     for _ in range(Q):
         B, X = map(int, input().split())
-        ANS += X * C[B]
-        C[X] += C[B]
+        ANS += (X * C[B] - B * C[B])
 
-        ANS -= B * C[B]
+        C[X] += C[B]
         del(C[B])
+
         print(ANS)
 
 
